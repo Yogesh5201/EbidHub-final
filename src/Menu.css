@@ -1,0 +1,325 @@
+.menu-page {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  margin: 0;
+  padding: 0;
+  background: #0a0a0a;
+  color: #ffffff;
+  text-align: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Video Background */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.85);
+}
+
+.particles-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Header */
+.menu-header {
+  background: rgba(15, 15, 15, 0.95);
+  color: #ffffff;
+  text-align: center;
+  padding: 28px 16px;
+  border-bottom: 1px solid rgba(201, 168, 109, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+}
+
+.menu-header h1 { 
+  margin: 0; 
+  font-weight: 700; 
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #d9c29f, #c9a86d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.menu-header h3 { 
+  font-weight: 500; 
+  padding-top: 8px; 
+  font-size: 1.1rem; 
+  color: #b0b0b0; 
+  letter-spacing: 0.5px;
+}
+
+/* Categories Container */
+.categories-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 70px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Category Card */
+.category-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid rgba(201, 168, 109, 0.15);
+  width: 85%;
+  min-height: 200px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(201, 168, 109, 0.1);
+  border-color: rgba(201, 168, 109, 0.3);
+}
+
+.category-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  flex-shrink: 0;
+  width: 220px;
+  height: 150px;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover .category-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.category-card:hover .image-overlay {
+  opacity: 0.5;
+}
+
+.category-content {
+  max-width: 600px;
+  color: #ffffff;
+  padding-left: 25px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.category-content h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d9c29f, #c9a86d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover .category-content h2 {
+  background: linear-gradient(135deg, #d9c29f, #c9a86d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.category-content p {
+  line-height: 1.6;
+  color: #b0b0b0;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.category-card:hover .category-content p {
+  color: #e0e0e0;
+}
+
+.category-hover-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 109, 0.08), transparent);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.category-card:hover .category-hover-effect {
+  left: 100%;
+}
+
+/* Collectors Section */
+.collectors-section {
+  margin: 40px 0 25px;
+  padding: 15px;
+  background: rgba(15, 15, 15, 0.7);
+  border-top: 1px solid rgba(201, 168, 109, 0.15);
+  border-bottom: 1px solid rgba(201, 168, 109, 0.15);
+  backdrop-filter: blur(10px);
+  width: 100%;
+}
+
+.collectors-section h2 {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* Return Button */
+.return-link {
+  margin: 25px 0;
+}
+
+.return-btn {
+  color: #c9a86d;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 1px solid rgba(201, 168, 109, 0.3);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  background: rgba(201, 168, 109, 0.1);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.return-btn:hover {
+  color: #0a0a0a;
+  background: #c9a86d;
+  box-shadow: 0 0 15px rgba(201, 168, 109, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.menu-footer {
+  background: rgba(15, 15, 15, 0.95);
+  color: #a0a0a0;
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid rgba(201, 168, 109, 0.15);
+  margin-top: 40px;
+  backdrop-filter: blur(10px);
+  width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .category-card {
+    flex-direction: column;
+    min-height: auto;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .category-image-container {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+  }
+  
+  .category-content {
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  .menu-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .categories-container {
+    padding: 0 10px;
+  }
+  
+  .category-card {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .menu-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .category-content h2 {
+    font-size: 20px;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .menu-page * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .video-background {
+    display: none;
+  }
+  
+  .menu-page {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  }
+}

@@ -1,0 +1,410 @@
+:root {
+  --primary: #0a0a0a;
+  --secondary: #c9a86d;
+  --accent: #b08d57;
+  --light: #f8f5f0;
+  --dark: #1a1a1a;
+  --transition: all 0.3s ease;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --gradient-gold: linear-gradient(135deg, #c9a86d, #b08d57);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Perpetua Titling MT', 'Georgia', serif;
+  background-color: var(--primary);
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--primary);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(201, 168, 109, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  transition: var(--transition);
+  filter: brightness(0.9);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Video Section - FULL WINDOW WIDTH */
+.video-section {
+  width: 100vw;
+  height: auto;
+  margin: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.video-container {
+  width: 100%;
+  position: relative;
+}
+
+.video-section video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  transition: var(--transition);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(201, 168, 109, 0.05) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Bid Now Button - PREMIUM STYLING */
+.bid-now-container {
+  text-align: center;
+  margin: 3rem auto;
+  width: 100%;
+}
+
+.bid-now-btn {
+  background: var(--gradient-gold);
+  color: var(--primary);
+  border: none;
+  padding: 1.5rem 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(201, 168, 109, 0.4),
+    0 0 0 1px rgba(201, 168, 109, 0.2);
+}
+
+.bid-now-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: var(--transition);
+}
+
+.bid-now-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(201, 168, 109, 0.6),
+    0 0 0 1px rgba(201, 168, 109, 0.3);
+}
+
+.bid-now-btn:hover::before {
+  left: 100%;
+}
+
+.bid-now-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.bid-now-btn .btn-icon {
+  margin-left: 0.75rem;
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.bid-now-btn:hover .btn-icon {
+  transform: translateX(5px);
+}
+
+/* Product Info Section */
+.product-info {
+  text-align: center;
+  width: 90%;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(201, 168, 109, 0.1);
+}
+
+.product-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary);
+  font-weight: 700;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.product-info p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--light);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+/* Storytime Section */
+.storytime-section {
+  text-align: center;
+  margin: 3rem auto;
+  padding: 3rem 2rem;
+  background: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(201, 168, 109, 0.1);
+  width: 90%;
+  max-width: 1000px;
+}
+
+.storytime-section h2 {
+  font-size: 2.5rem;
+  color: var(--secondary);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.storytime-section p {
+  font-size: 1.2rem;
+  color: var(--light);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  margin-bottom: 2rem;
+}
+
+/* Link Styles */
+.link {
+  color: var(--secondary);
+  text-decoration: none;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: var(--transition);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.link:hover {
+  color: #d4af37;
+  background: rgba(201, 168, 109, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--primary);
+  color: var(--light);
+  text-align: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  margin-top: 4rem;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  border-top: 1px solid rgba(201, 168, 109, 0.2);
+}
+
+footer p {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+/* Additional Modern Elements */
+.gold-accent {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.highlight {
+  background: linear-gradient(120deg, transparent 0%, transparent 50%, rgba(201, 168, 109, 0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  transition: var(--transition);
+}
+
+.highlight:hover {
+  background-position: -100% 0;
+}
+
+/* Animation for subtle entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-info,
+.storytime-section,
+.bid-now-container {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Bid Now Button Animation */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 
+      0 10px 30px rgba(201, 168, 109, 0.4),
+      0 0 0 1px rgba(201, 168, 109, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 10px 30px rgba(201, 168, 109, 0.6),
+      0 0 0 1px rgba(201, 168, 109, 0.3);
+  }
+}
+
+.bid-now-btn {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #d4af37, #c9a86d);
+}
+
+/* Focus states for accessibility */
+.bid-now-btn:focus {
+  outline: 2px solid var(--secondary);
+  outline-offset: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bid-now-btn {
+    padding: 1.25rem 3rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .product-info {
+    width: 95%;
+    padding: 2rem;
+    margin: 2rem auto;
+  }
+  
+  .product-info h2 {
+    font-size: 2rem;
+  }
+  
+  .product-info p {
+    font-size: 1.1rem;
+  }
+  
+  .storytime-section {
+    width: 95%;
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+  
+  .storytime-section h2 {
+    font-size: 2rem;
+  }
+  
+  .storytime-section p {
+    font-size: 1.1rem;
+  }
+  
+  .logo {
+    width: 80px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bid-now-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .product-info h2,
+  .storytime-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .product-info p,
+  .storytime-section p {
+    font-size: 1rem;
+  }
+  
+  .link {
+    font-size: 1.1rem;
+  }
+}
